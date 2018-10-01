@@ -62,7 +62,9 @@ public class DynamoDBSplitGenerator {
 
   protected DynamoDBSplit createDynamoDBSplit(Path path, long approxItemCount, int splitId,
       List<Integer> segments, int totalSegments) {
-    return new DynamoDBSegmentsSplit(path, approxItemCount, splitId, segments, totalSegments, null);
+    DynamoDBSplit dynamoDBSplit = new DynamoDBSegmentsSplit(path, approxItemCount, splitId, segments, totalSegments, null);
+    log.info("Dynamo Splits : {}" + dynamoDBSplit);
+    return dynamoDBSplit;
   }
 
 }
